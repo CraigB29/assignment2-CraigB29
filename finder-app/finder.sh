@@ -1,20 +1,18 @@
 #!/bin/sh
 
-#chatgptk utilized for syntax and invididual command formulation (not whole implementation)
-
-#echo "You passed $# arguments."
-
+#check argument count
 arg_count=$#
-
 
 if [ ${arg_count} != 2 ]; then
 echo "fail, must have 2 arguments"
 exit 1
 fi
 
+#acquire arguments (file directory and searchstr)
 filesdir=$1
 searchstr=$2
 
+#check if directory exists
 if [ -d "$filesdir" ];then
     : #echo "directory exists!"
 else
@@ -22,28 +20,18 @@ else
     exit 1
 fi
 
-#echo "<<<arguments filesdir = ${filesdir}, searchstr = ${searchstr}"
 
 
 # get file count in folder
 file_count=$(find ${filesdir} -type f | wc -l)
 
 
-# get the number of string matches
-#match_line_count=$(find ${filesdir} | grep ${searchstr} | wc -l)
+# get the number of string matches within the files int the folder
 match_line_count=$(grep -r "$searchstr" "$filesdir" | wc -l)
 
-#print
+#print the file and matched line count
 echo "The number of files are ${file_count} and the number of matching lines are ${match_line_count}"
-#echo "The number of files are ${file_count} and the number of matching lines are ${match_line_count}"
 
+#return succes
 exit 0
-#if[0 != cd ${filesdir}];then
-#exit 1
-#fi
 
-#filesdir echo "Hello, $1!"
-#searchstr echo "Your favorite color is $2."
-
-
-#exit 1
