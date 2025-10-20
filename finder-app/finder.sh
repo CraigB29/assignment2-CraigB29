@@ -33,6 +33,7 @@ match_line_count=$(find ${filesdir} | grep -r ${searchstr} | wc -l)
 #print
 echo "The number of files are ${file_count} and the number of matching lines are ${match_line_count}"
 
+exit 0
 #if[0 != cd ${filesdir}];then
 #exit 1
 #fi

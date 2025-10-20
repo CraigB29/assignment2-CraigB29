@@ -23,3 +23,5 @@ exit 1
 fi
 
 echo $writestr >> $writefile
+
+exit 0
