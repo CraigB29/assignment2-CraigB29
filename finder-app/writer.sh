@@ -1,0 +1,24 @@
+#!/bin/sh
+
+arg_count=$#
+
+if [ ${arg_count} != 2 ]; then
+echo "fail, must have 2 arguments"
+exit 1
+fi
+
+writefile=$1 #full path to file (including name)
+writestr=$2
+
+
+
+rm $writefile
+
+
+if touch "$writefile"; then
+echo "successfully created file, ${writefile}"
+else
+echo "error, invalid 'writefile' argument"
+fi
+
+echo $writestr >> $writefile
