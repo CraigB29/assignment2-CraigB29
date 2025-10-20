@@ -19,6 +19,7 @@ if touch "$writefile"; then
 echo "successfully created file, ${writefile}"
 else
 echo "error, invalid 'writefile' argument"
+exit 1
 fi
 
 echo $writestr >> $writefile
