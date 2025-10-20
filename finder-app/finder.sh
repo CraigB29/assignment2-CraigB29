@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#chatgpt utilized for syntax and invididual command formulation (not whole implementation)
+#chatgptk utilized for syntax and invididual command formulation (not whole implementation)
 
 echo "You passed $# arguments."
 
