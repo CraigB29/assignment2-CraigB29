@@ -1,28 +1,67 @@
-#!/bin/bash
+#!/bin/sh
 
-# check argument count is correct
+
+
 arg_count=$#
 
-if [ ${arg_count} != 2 ]; then
-#echo "fail, must have 2 arguments"
-exit 1
+
+#check that 2 arguments were passed
+if [ $arg_count != 2 ]; then
+    #echo "not enough arguments"
+    exit 1
+else
+    :
 fi
 
-#acquire arguments (full path to file including name AND write string)
-writefile=$1 
+writefile=$1  #path including file name
 writestr=$2
 
+# seperate path from file name
+#echo "$writefile"
+file_name=$(basename "$writefile")
+#echo "$file_name"
+path=$(dirname "$writefile")
+# "$path"
 
-#make the folder and file if they do not exist
-if mkdir -p "$(dirname "$writefile")" && touch "$writefile"; then
- : #echo sucesffuly made directory and file
-else
- : #echo failed to make directory and file
-fi
 
 
-#write string to file
+#make directory/directories 
+
+mkdir -p "$path"
+
+#delete file (if it exists)
+rm "$writefile"
+
+#make file
+touch "$writefile"
+
 echo "$writestr" > "$writefile"
 
-#success
 exit 0
+
+## check argument count is correct
+#arg_count=$#
+#
+#if [ ${arg_count} != 2 ]; then
+##echo "fail, must have 2 arguments"
+#exit 1
+#fi
+#
+##acquire arguments (full path to file including name AND write string)
+#writefile=$1 
+#writestr=$2
+#
+#
+##make the folder and file if they do not exist
+#if mkdir -p "$(dirname "$writefile")" && touch "$writefile"; then
+# : #echo sucesffuly made directory and file
+#else
+# : #echo failed to make directory and file
+#fi
+#
+#
+##write string to file
+#echo "$writestr" > "$writefile"
+#
+##success
+#exit 0
