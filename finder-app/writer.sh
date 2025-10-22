@@ -7,26 +7,24 @@ arg_count=$#
 
 #check that 2 arguments were passed
 if [ $arg_count != 2 ]; then
-    #echo "not enough arguments"
+    echo "must have 2 arguments"
     exit 1
 else
     :
 fi
 
+#acquire arguments
 writefile=$1  #path including file name
 writestr=$2
 
 # seperate path from file name
-#echo "$writefile"
 file_name=$(basename "$writefile")
-#echo "$file_name"
 path=$(dirname "$writefile")
-# "$path"
+
 
 
 
 #make directory/directories 
-
 mkdir -p "$path"
 
 #delete file (if it exists)

@@ -14,7 +14,7 @@ searchstr=$2
 
 #check if directory exists
 #if [ -d "$filesdir" ];then
-if [ find "$filesdir" -type d ];then
+if find "$filesdir" -type d;then
     : #echo "directory exists!"
 else
     #echo "directory DOES NOT EXIST"
