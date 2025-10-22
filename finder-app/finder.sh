@@ -22,7 +22,6 @@ else
 fi
 
 
-
 # get file count in folder
 file_count=$(find ${filesdir} -type f | wc -l)
 
