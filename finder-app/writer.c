@@ -58,13 +58,13 @@ int main(int argument_count, char *argv[])
 
         if(file_ptr == NULL)
         {
-            printf("failed to open file, %s", argv[1]);
+            //printf("failed to open file, %s", argv[1]);
             syslog(LOG_ERR, "failed to open file, %s", argv[1]);
             return 1;
         }
         else
         {
-            printf("Writing %s to %s", argv[2], argv[1]);
+            //printf("Writing %s to %s", argv[2], argv[1]);
             syslog(LOG_DEBUG, "Writing %s to %s", argv[2], argv[1]);
             fprintf(file_ptr, "%s", argv[2]);
             fclose(file_ptr);
