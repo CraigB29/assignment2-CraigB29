@@ -43,7 +43,7 @@ exit 0
 
 int main(int argument_count, char *argv[])
 {
-    printf("hello world\r\n");
+    //printf("hello world\r\n");
     FILE *file_ptr = NULL;
     //openlog("./mylog.txt", SOMETHING, LOG_USER)
     openlog(NULL, 0, LOG_USER);
